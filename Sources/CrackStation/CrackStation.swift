@@ -1,14 +1,28 @@
 import Foundation
 
-public class CrackStation: Decrypter{
+public class CrackStation: Decrypter {
 
+    var mvp_dict : [String:String] = [:]
     
-    required public init(){}
+    required public init(){
+        mvp_dict = self.loadDictionaryFromDisk()
+    }
 
 
     public func decrypt(shaHash : String) -> String? {
-        let l = Dictionary();
-        let a: [String : String] = l.createLookupTable();
-        return a[shaHash];
+        return mvp_dict[shaHash];
 }
+
+    public func loadDictionaryFromDisk() -> [String : String] {
+        guard let path: URL = Bundle.module.url(forResource: "data", withExtension: "json") else { return [:] }
+        do {
+            let data: Data = try Data(contentsOf: path)
+            let jsonResult: Any = try JSONSerialization.jsonObject(with: data)
+            let lookupTable: Dictionary = jsonResult as? Dictionary<String, String> ?? [:]
+            return lookupTable
+        
+        } catch {
+            return [:]
+        }
+    }
 }

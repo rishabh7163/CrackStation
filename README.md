@@ -1,15 +1,55 @@
-# Dictionary
+# CrackStation, a Decrypter Implementation
 
-This Library is used to generate SHA1 hash codes for all the characters in alhabets and digits 0 to 9.
-It has 4 for loops:
- 1. First one to generate shahash for all character "a-z".
- 2. Second one to generate shahash for all uppercase character "A-Z".
- 3. Third one to generate shahash for all digits "0-9".
- 4. Forth one to generate shahash for upto 2 inputs.
+This is a Decrypter application that takes up to three sha key and decodes their password. 
+
+## Overview
+
+This project has 3 stages:
+
+* Create a simple application that can decrypt the sha key that is provided and convert that to its equivalent text(password in this case).
+* This stage required us to generate a data file that contains all the possible sha keys and their text conversion. 
+* After that, we created a function that relaced the data file with a lookup dictionary so that we don't have to hardcode the sha keys. It can decode up to 2 characters. 
+* In the last stage(MVP) we generated more than 200k password combinations and they can be up to 3 characters. 
+
+## Mission Statement
+
+The primary purpose of building this is to test a way to decrypt passwords up to three characters and to get hands-on experience with swift. 
+
+## Installation
+
+### Swift Package Manager
+The [swift package manager](https://www.swift.org/package-manager/) is a tool for managing the distribution of Swift code. It's integrated with the Swift build system to automate the downloading, compiling, and linking of the dependencies. 
+Once you have your Swift package set up, add Crackstation to  the list of dependencies in your Package.swift file: 
+   
+   .target(
+            name: "CrackStation",
+            dependencies: [.product(name: "Crypto", package: "swift-crypto")],
+            resources: [.process("data.json")]),
 
 
-# How to use the Library
 
-Call the function CrackStation which call the library "Dictionary".
-This will generate the shaHash for the given characters.
-The optput of this function will return the shaHash key of the given character.
+## Usage
+
+### The API
+1- init() - The initializer of the decrypt.
+
+public protocol Decrypter {
+    init()
+
+    
+    func decrypt(shaHash: String) -> String?
+}
+
+### An Example
+
+2- Call Site
+
+let l = CrackStation();
+        let final_test = l.decrypt(shaHash:"bbeebd879e1dff6918546dc0c179fdde505f2a21591c9a9c96e36b054ec5af83")
+        XCTAssertEqual(final_test,"Z")
+
+## Author
+Rishabh Srivastava
+(Oregon State University)            
+
+
