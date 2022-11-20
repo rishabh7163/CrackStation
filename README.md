@@ -1,25 +1,25 @@
 # CrackStation, a Decrypter Implementation
 
-This is a Decrypter application that takes upto three sha key and decode their password. 
+This is a Decrypter application that takes up to three sha key and decodes their password. 
 
 ## Overview
 
-This project have 3 stages:
+This project has 3 stages:
 
-* Create a simple application that can decrypt the sha key that is provided and convert that to it's equivalent text(password in this case).
-* This stage required us to generate a data file which contains all the possible sha keys and their text conversion. 
-* After that, we created a function which relaced the data file with a lookup dictionary so that we don't have to hardcode the sha keys. It can decode up to 2 characters. 
-* In the last stage(MVP) we generated more that 200k password combinations and they can be upto 3 characters. 
+* Create a simple application that can decrypt the sha key that is provided and convert that to its equivalent text(password in this case).
+* This stage required us to generate a data file that contains all the possible sha keys and their text conversion. 
+* After that, we created a function that relaced the data file with a lookup dictionary so that we don't have to hardcode the sha keys. It can decode up to 2 characters. 
+* In the last stage(MVP) we generated more than 200k password combinations and they can be up to 3 characters. 
 
 ## Mission Statement
 
-The main purpose of building this is to test a way to decypt passwords upto three characters and to get hands on experience on swift. 
+The primary purpose of building this is to test a way to decrypt passwords up to three characters and to get hands-on experience with swift. 
 
 ## Installation
 
 ### Swift Package Manager
-The [swift package manager](https://www.swift.org/package-manager/) is a tool for managing the distribution of Swift code. It's integrated with Swift build system to automate the process of downloading, compiling, and linking the dependencies. 
-Once you have your Swift package setup, add Crackstation to  the list of dependencies in your Package.swift file: 
+The [swift package manager](https://www.swift.org/package-manager/) is a tool for managing the distribution of Swift code. It's integrated with the Swift build system to automate the downloading, compiling, and linking of the dependencies. 
+Once you have your Swift package set up, add Crackstation to  the list of dependencies in your Package.swift file: 
    
    .target(
             name: "CrackStation",
@@ -50,4 +50,6 @@ let l = CrackStation();
 
 ## Author
 Rishabh Srivastava
-Oregon State University            
+(Oregon State University)            
+
+
