@@ -17,8 +17,7 @@ let package = Package(
             name: "CrackStation",
             targets: ["CrackStation"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.5.0")),
+    dependencies: [  
         .package(url: "https://github.com/apple/swift-crypto.git", "1.0.0" ..< "3.0.0"),
     ],
     targets: [
@@ -26,7 +25,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "CrackStation",
-            dependencies: ["Alamofire",.product(name: "Crypto", package: "swift-crypto")],
+            dependencies: [.product(name: "Crypto", package: "swift-crypto")],
             resources: [.process("data.json")]),
         .testTarget(
             name: "CrackStationTest",
