@@ -1,10 +1,9 @@
 import Foundation
 
-public protocol Decrypter {
-    init()
+public struct CrackStation: Decrypter {
+    init(){
     func decrypt(shaHash: String) -> String?
 }
-public struct CrackStation: Decrypter {
 
     var mvp_dict: Dictionary <String,String> = [:]
     public init() {
