@@ -1,28 +1,25 @@
 import Foundation
 
-public class CrackStation: Decrypter {
-
-    var mvp_dict : [String:String] = [:]
-    
-    required public init(){
-        mvp_dict = self.loadDictionaryFromDisk()
-    }
-
-
-    public func decrypt(shaHash : String) -> String? {
-        return mvp_dict[shaHash];
+public protocol Decrypter {
+    init()
+    func decrypt(shaHash: String) -> String?
 }
+public struct CrackStation: Decrypter {
 
-    public func loadDictionaryFromDisk() -> [String : String] {
-        guard let path: URL = Bundle.module.url(forResource: "data", withExtension: "json") else { return [:] }
-        do {
-            let data: Data = try Data(contentsOf: path)
-            let jsonResult: Any = try JSONSerialization.jsonObject(with: data)
-            let lookupTable: Dictionary = jsonResult as? Dictionary<String, String> ?? [:]
-            return lookupTable
-        
+    var mvp_dict: Dictionary <String,String> = [:]
+    public init() {
+        do{
+            guard let path = Bundle.module.url(forResource: "data", withExtension: "json") else {return}
+            let data = try Data(contentsOf: path)
+            let jsonResult = try JSONSerialization.jsonObject(with: data) as? Dictionary<String, String> 
+            mvp_dict = jsonResult ?? [:]
         } catch {
-            return [:]
+                print("Error Loading from dictionary")
         }
     }
+    
+    public func decrypt(shaHash: String) -> String? {
+        let password = mvp_dict[shaHash]
+        return password
+    }  
 }
