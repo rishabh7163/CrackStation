@@ -5,9 +5,9 @@ import XCTest
 
 final class CrackStationTest: XCTestCase{
     func testcrackstationtesting(){
-        let l = CrackStation();
-        let final_test = l.decrypt(shaHash:"745ce947be584a9eea85fbd23672b840dae9da74")
-        XCTAssertEqual(final_test,"??7")
+        let password = CrackStation();
+        let actual_password = password.decrypt(shaHash:"745ce947be584a9eea85fbd23672b840dae9da74")
+        XCTAssertEqual(actaul_password,"??7")
 
     }
 }
