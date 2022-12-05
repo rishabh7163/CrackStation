@@ -2,7 +2,7 @@ import Foundation
 
 public class CrackStation: Decrypter {
 
-    private let mvp_dict : [String:String] = [:]
+    var mvp_dict : [String:String] = [:]
     
     required public init(){
         mvp_dict = self.loadDictionaryFromDisk()
