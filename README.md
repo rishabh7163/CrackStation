@@ -9,7 +9,7 @@ This project has 3 stages:
 * Create a simple application that can decrypt the SHA-1 key that is provided and convert that to its equivalent text(password in this case).
 * This stage required us to generate a data file that contains all the possible sha keys and their text conversion. 
 * After that, we created a function that relaced the data file with a lookup dictionary so that we don't have to hardcode the sha keys. It can decode up to 2 characters. 
-* In the last stage(MVP) we generated more than 200k password combinations and they can be up to 3 characters (SHA-1). 
+* In the last stage(MVP) we generated more than 200k password combinations and they can be up to 3 characters (SHA-1 and SHA-256). 
 
 ## Mission Statement
 
