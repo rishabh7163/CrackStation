@@ -1,6 +1,6 @@
 # CrackStation, a Decrypter Implementation
 
-This is a Decrypter application that takes up to three sha key and decodes their password. 
+This is a Decrypter application that takes a SHA-1 or SHA-256 hash and decodes their password.This password is upto of three characters in length. These passwords are not salted.  
 
 ## Overview
 
@@ -13,7 +13,7 @@ This project has 3 stages:
 
 ## Mission Statement
 
-The primary purpose of building this is to test a way to decrypt passwords up to three characters and to get hands-on experience with swift. 
+This is a public library build in swift. This can used for testing purposes. The primary purpose of building this is to test a way to decrypt passwords up to three characters.These 3 characters includes any combination of [a-z,A-Z,0-9,?!]. 
 
 ## Installation
 
@@ -42,11 +42,11 @@ public protocol Decrypter {
 
 ### An Example
 
-2- Call Site
+2- Call Site:
 
-let l = CrackStation();
-        let final_test = l.decrypt(shaHash:"bbeebd879e1dff6918546dc0c179fdde505f2a21591c9a9c96e36b054ec5af83")
-        XCTAssertEqual(final_test,"Z")
+        let password = CrackStation();
+        let actual_password = password.decrypt(shaHash:"745ce947be584a9eea85fbd23672b840dae9da74")
+        XCTAssertEqual(actaul_password,"??7")
 
 ## Author
 Rishabh Srivastava
